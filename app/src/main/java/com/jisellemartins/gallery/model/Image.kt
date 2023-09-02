@@ -1,4 +1,7 @@
 package com.jisellemartins.gallery.model
 
-class Image {
-}
+class Image(
+    val title: String,
+    val link: String,
+    val images: List<Links>
+)

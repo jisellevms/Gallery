@@ -1,4 +1,7 @@
 package com.jisellemartins.gallery.model
 
-class Data {
-}
+class Data (
+    val data: List<Image>,
+    val sucess: Boolean,
+    val status: Float
+)
