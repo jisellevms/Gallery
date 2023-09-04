@@ -5,12 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jisellemartins.gallery.model.Data
 import com.jisellemartins.gallery.repositories.GalleryRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class GalleryViewModel(private val repository: GalleryRepository) : ViewModel() {
-    private val _data = MutableStateFlow<Data>(Data(emptyList(), false, (-1.0).toFloat()))
+    private val _data = MutableStateFlow<Data>(Data(emptyList(), false, -1))
     val dataFlow: StateFlow<Data> get() = _data
 
     fun getImagesList() {
@@ -18,5 +19,6 @@ class GalleryViewModel(private val repository: GalleryRepository) : ViewModel() 
             _data.value = repository.getImages()
         }
     }
+
 
 }

@@ -11,9 +11,9 @@ class GalleryRepository constructor(
         val response = service.getImages()
 
         if (response.isSuccessful) {
-            return response.body() ?: Data(emptyList(), false, (-1.0).toFloat())
+            return response.body()?: Data(emptyList(), false, -1)
         }
-        return Data(emptyList(), false, (-1.0).toFloat())
+        return Data(emptyList(), false, -1)
 
     }
 
