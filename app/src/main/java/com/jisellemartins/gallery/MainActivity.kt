@@ -7,10 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.jisellemartins.gallery.model.Data
+import com.jisellemartins.gallery.ui.components.LoadingImages
 import com.jisellemartins.gallery.ui.screens.GalleryScreen
 import com.jisellemartins.gallery.ui.theme.GalleryTheme
 import com.jisellemartins.gallery.viewmodel.GalleryViewModel
@@ -22,15 +21,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val data by galleryModelMain.dataFlow.collectAsState()
+            LoadingImages(galleryModelMain)
             galleryModelMain.getImagesList()
-            App(data)
         }
     }
 }
 
 @Composable
-fun App(data:Data) {
+fun App(data: Data) {
     GalleryTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),

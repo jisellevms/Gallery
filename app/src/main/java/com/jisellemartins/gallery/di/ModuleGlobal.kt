@@ -11,6 +11,6 @@ import retrofit2.Retrofit
 val moduleGlobal = module {
     single<Retrofit> { service.api }
     single<GalleryService> { get<Retrofit>().create(GalleryService::class.java)}
-    single<GalleryRepository> { GalleryRepository(get()) }
-    viewModel<GalleryViewModel>{ GalleryViewModel(get())}
+    single { GalleryRepository(get()) }
+    viewModel { GalleryViewModel(get())}
 }
